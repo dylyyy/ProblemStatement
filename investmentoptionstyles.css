@@ -1,0 +1,90 @@
+#search-section {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    max-width: 400px;
+}
+
+#search-bar {
+    width: 100%;
+    padding: 0.5em;
+    padding-right: 2.5em; /* Space for the icon */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+#search-button {
+    position: absolute;
+    right: 0.5em; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4CAF50; /* Icon color */
+    font-size: 20px; /* Icon size */
+}
+
+#search-button i {
+    margin: 0;
+}
+
+#investment-options {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1em; /* Space between cards */
+}
+
+.investment-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 1em;
+    text-align: center;
+}
+
+.investment-card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.investment-card h3 {
+    margin: 0.5em 0;
+}
+
+.investment-card p {
+    margin: 0.5em 0;
+}
+
+.price {
+    font-size: 1em; /* Adjusted font size */
+    color: #4CAF50;
+    margin: 1em 0;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin-top: auto;
+    color: white;
+    background-color: #4CAF50;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}

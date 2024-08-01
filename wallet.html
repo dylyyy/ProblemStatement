@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Wallet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2e8b57;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .section input[type="number"],
+        .section select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .section input[type="radio"] {
+            margin-right: 10px;
+        }
+        .section .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #2e8b57;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #276f47;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="homepage.html">Sustainable Finance</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="donationpage.html">Donation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wallet.html">E-Wallet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carbontracking.html">View Carbon Footprint</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="investmentoption.html">View Investment page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+ 
+    <div class="container">
+        <h1>My E-Wallet</h1>
+        <div class="section">
+            <h2>Wallet Balance: $<span id="wallet-balance">5000.00</span></h2>
+        </div>
+        <div class="section">
+            <label for="add-amount">Add Amount:</label>
+            <input type="number" id="add-amount" name="add_amount">
+            <button type="button" class="btn" onclick="addFunds()">Add Funds</button>
+        </div>
+        <div class="section">
+            <label for="withdraw-amount">Withdraw Amount:</label>
+            <input type="number" id="withdraw-amount" name="withdraw_amount">
+            <button type="button" class="btn" onclick="withdrawFunds()">Withdraw Funds</button>
+        </div>
+    </div>
+ 
+    <script>
+        let walletBalance = 5000;
+ 
+        function updateWalletBalance() {
+            document.getElementById('wallet-balance').innerText = walletBalance.toFixed(2);
+        }
+ 
+        function addFunds() {
+            const addAmount = parseFloat(document.getElementById('add-amount').value);
+            if (isNaN(addAmount) || addAmount <= 0) {
+                alert('Please enter a valid amount to add.');
+                return;
+            }
+ 
+            walletBalance += addAmount;
+            updateWalletBalance();
+            alert('Funds added successfully.');
+        }
+ 
+        function withdrawFunds() {
+            const withdrawAmount = parseFloat(document.getElementById('withdraw-amount').value);
+            if (isNaN(withdrawAmount) || withdrawAmount <= 0) {
+                alert('Please enter a valid amount to withdraw.');
+                return;
+            }
+ 
+            if (withdrawAmount > walletBalance) {
+                alert('Insufficient balance in your wallet.');
+                return;
+            }
+ 
+            walletBalance -= withdrawAmount;
+            updateWalletBalance();
+            alert('Funds withdrawn successfully.');
+        }
+ 
+        // Initialize wallet balance from session storage if available
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedBalance = sessionStorage.getItem('walletBalance');
+            if (storedBalance) {
+                walletBalance = parseFloat(storedBalance);
+                updateWalletBalance();
+            }
+        });
+ 
+        // Update session storage on balance change
+        window.addEventListener('beforeunload', () => {
+            sessionStorage.setItem('walletBalance', walletBalance.toFixed(2));
+        });
+    </script>
+</body>
+</html>

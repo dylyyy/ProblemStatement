@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Confirmation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2e8b57;
+        }
+        .amount {
+            font-size: 24px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="homepage.html">Sustainable Finance</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="donationpage.html">Donation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="homepage.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wallet.html">E-Wallet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carbontracking.html">View Carbon Footprint</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="investmentoption.html">View Investment Option</Option></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <h1>Donation Successful!</h1>
+    <p class="amount">E-wallet balance now is: $<span id="balance"></span></p>
+</div>
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const balance = sessionStorage.getItem('walletBalance');
+        document.getElementById('balance').textContent = balance;
+    });
+</script>
+ 
+</body>
+</html>

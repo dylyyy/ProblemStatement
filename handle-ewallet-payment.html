@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Wallet Payment</title>
+    <link rel="stylesheet" href="paymentstyles.css">
+</head>
+<body>
+    <header>
+        <h1>E-Wallet Payment</h1>
+    </header>
+    <main>
+        <section id="ewallet-payment">
+            <h2>Confirm E-Wallet Payment</h2>
+            <p>Your current e-wallet balance is: $<span id="ewallet-balance">5000.00</span></p>
+            <p>Amount to Deduct: $<span id="amount-to-deduct">0.00</span></p>
+            <button onclick="processEWalletPayment()">Confirm Payment</button>
+        </section>
+    </main>
+    <script>
+        // Function to update the balance and amount to deduct display
+        function updateBalanceDisplay(amountToDeduct) {
+            const walletBalance = parseFloat(sessionStorage.getItem('walletBalance')) || 5000;
+            document.getElementById('ewallet-balance').innerText = walletBalance.toFixed(2);
+            document.getElementById('amount-to-deduct').innerText = amountToDeduct.toFixed(2);
+        }
+
+        // Function to process the payment
+        function processEWalletPayment() {
+            const walletBalance = parseFloat(sessionStorage.getItem('walletBalance')) || 5000;
+            const amountToDeduct = parseFloat(document.getElementById('amount-to-deduct').innerText);
+
+            if (amountToDeduct > walletBalance) {
+                alert('Insufficient balance in your e-wallet.');
+                return;
+            }
+
+            // Deduct the amount
+            const newBalance = walletBalance - amountToDeduct;
+            sessionStorage.setItem('walletBalance', newBalance.toFixed(2));
+            alert('Payment successful. Thank you!');
+
+            // Redirect to a confirmation or thank you page
+            window.location.href = 'confirmation.html'; // Change this to your actual confirmation page
+        }
+
+        // Initialize balance display on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the amount to deduct from the URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const amountToDeduct = parseFloat(urlParams.get('amount')) || 0;
+            updateBalanceDisplay(amountToDeduct);
+        });
+    </script>
+</body>
+</html>

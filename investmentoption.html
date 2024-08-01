@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Finance - Green Investments</title>
+    <link rel="stylesheet" href="investmentoptionstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="homepage.html">Sustainable Finance</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="donationpage.html">Donation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wallet.html">E-Wallet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carbontracking.html">View Carbon Footprint</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="investmentoption.html">View Investment Options</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <header>
+        <h1>Green Investment Options</h1>
+    </header>
+    <main>
+        <section id="search-section">
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search investments..." onkeyup="filterInvestments()">
+                <button id="search-button" onclick="filterInvestments()"><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+        <section id="investment-options">
+            <!-- Investment Cards -->
+            <div class="investment-card" data-title="Renewable Energy Fund">
+                <img src="green-investment1.jpg" alt="Renewable Energy Fund">
+                <h3>Renewable Energy Fund</h3>
+                <p>Invest in renewable energy projects to support sustainable power sources.</p>
+                <p class="price">$500</p>
+                <button onclick="showDetails('Renewable Energy Fund', 'Invest in renewable energy projects to support sustainable power sources.', 500)">View Details</button>
+                <a href="payment.html?amount=500" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Eco-Friendly Tech Startups">
+                <img src="green-investment2.jpg" alt="Eco-Friendly Tech Startups">
+                <h3>Eco-Friendly Tech Startups</h3>
+                <p>Support startups focused on eco-friendly technology innovations.</p>
+                <p class="price">$300</p>
+                <button onclick="showDetails('Eco-Friendly Tech Startups', 'Support startups focused on eco-friendly technology innovations.', 300)">View Details</button>
+                <a href="payment.html?amount=300" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Sustainable Agriculture">
+                <img src="green-investment3.jpg" alt="Sustainable Agriculture">
+                <h3>Sustainable Agriculture</h3>
+                <p>Invest in agricultural projects that promote sustainable farming practices and reduce environmental impact.</p>
+                <p class="price">$450</p>
+                <button onclick="showDetails('Sustainable Agriculture', 'Invest in agricultural projects that promote sustainable farming practices and reduce environmental impact.', 450)">View Details</button>
+                <a href="payment.html?amount=450" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Green Building Projects">
+                <img src="green-investment4.jpg" alt="Green Building Projects">
+                <h3>Green Building Projects</h3>
+                <p>Support the construction of eco-friendly buildings with energy-efficient designs and materials.</p>
+                <p class="price">$600</p>
+                <button onclick="showDetails('Green Building Projects', 'Support the construction of eco-friendly buildings with energy-efficient designs and materials.', 600)">View Details</button>
+                <a href="payment.html?amount=600" class="buy-button">Buy</a>
+            </div>
+            <!-- Additional investment options -->
+            <div class="investment-card" data-title="Clean Water Initiatives">
+                <img src="green-investment5.jpg" alt="Clean Water Initiatives">
+                <h3>Clean Water Initiatives</h3>
+                <p>Invest in projects that provide clean and safe drinking water to communities in need.</p>
+                <p class="price">$350</p>
+                <button onclick="showDetails('Clean Water Initiatives', 'Invest in projects that provide clean and safe drinking water to communities in need.', 350)">View Details</button>
+                <a href="payment.html?amount=350" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Waste Management Solutions">
+                <img src="green-investment6.jpg" alt="Waste Management Solutions">
+                <h3>Waste Management Solutions</h3>
+                <p>Support technologies and practices that improve waste management and recycling processes.</p>
+                <p class="price">$400</p>
+                <button onclick="showDetails('Waste Management Solutions', 'Support technologies and practices that improve waste management and recycling processes.', 400)">View Details</button>
+                <a href="payment.html?amount=400" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Sustainable Transportation">
+                <img src="green-investment7.jpg" alt="Sustainable Transportation">
+                <h3>Sustainable Transportation</h3>
+                <p>Invest in transportation solutions that reduce emissions and promote eco-friendly commuting options.</p>
+                <p class="price">$550</p>
+                <button onclick="showDetails('Sustainable Transportation', 'Invest in transportation solutions that reduce emissions and promote eco-friendly commuting options.', 550)">View Details</button>
+                <a href="payment.html?amount=550" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Ocean Conservation">
+                <img src="green-investment8.jpg" alt="Ocean Conservation">
+                <h3>Ocean Conservation</h3>
+                <p>Support efforts to protect and restore marine ecosystems and reduce ocean pollution.</p>
+                <p class="price">$700</p>
+                <button onclick="showDetails('Ocean Conservation', 'Support efforts to protect and restore marine ecosystems and reduce ocean pollution.', 700)">View Details</button>
+                <a href="payment.html?amount=700" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Green Energy Storage">
+                <img src="green-investment9.jpg" alt="Green Energy Storage">
+                <h3>Green Energy Storage</h3>
+                <p>Invest in technologies that enhance the storage and efficiency of renewable energy sources.</p>
+                <p class="price">$650</p>
+                <button onclick="showDetails('Green Energy Storage', 'Invest in technologies that enhance the storage and efficiency of renewable energy sources.', 650)">View Details</button>
+                <a href="payment.html?amount=650" class="buy-button">Buy</a>
+            </div>
+            <div class="investment-card" data-title="Climate Change Research">
+                <img src="green-investment10.jpg" alt="Climate Change Research">
+                <h3>Climate Change Research</h3>
+                <p>Support research initiatives focused on understanding and combating climate change.</p>
+                <p class="price">$800</p>
+                <button onclick="showDetails('Climate Change Research', 'Support research initiatives focused on understanding and combating climate change.', 800)">View Details</button>
+                <a href="payment.html?amount=800" class="buy-button">Buy</a>
+            </div>
+            <!-- Add more investment cards as needed -->
+        </section>
+        <section id="investment-details" style="display:none;">
+            <h2 id="investment-title"></h2>
+            <p id="investment-description"></p>
+            <button onclick="closeDetails()">Close</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showDetails(title, description, price) {
+            document.getElementById('investment-title').textContent = title;
+            document.getElementById('investment-description').textContent = description;
+            document.getElementById('investment-details').style.display = 'block';
+            document.getElementById('investment-details').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeDetails() {
+            document.getElementById('investment-details').style.display = 'none';
+            document.querySelector('header').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterInvestments() {
+            var input = document.getElementById('search-bar').value.toLowerCase();
+            var cards = document.querySelectorAll('.investment-card');
+
+            cards.forEach(function(card) {
+                var title = card.getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
